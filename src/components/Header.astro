@@ -1,0 +1,120 @@
+<header>
+  <div class="logo">
+    <img src="//pleasant.dk/cdn/shop/files/pleasant_logo_22488a6e-43b5-45ec-af04-b902170d456b.png?v=1614306557&width=320" alt="Pleasants logo" />
+  </div>
+
+  <div class="burgermenu">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+
+  <nav class="navlinks">
+    <ul>
+      <li>
+        <a href="#">Tøj</a>
+        <span class="dropdown-toggle">▼</span>
+        <ul class="submenu">
+          <li><a href="#">Skjorter</a></li>
+          <li><a href="#">Shirts</a></li>
+          <li><a href="#">Skjorter</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // BURGERMENU
+        const burgerMenu = document.querySelector(".burgermenu");
+        const navLinks = document.querySelector(".navlinks ul");
+
+        burgerMenu.addEventListener("click", () => {
+          navLinks.classList.toggle("show");
+          burgerMenu.classList.toggle("open");
+        });
+
+        // DROPDOWN MENUER (Om mig + Coaching)
+        const toggles = document.querySelectorAll(".dropdown-toggle");
+
+        toggles.forEach((toggle) => {
+          toggle.addEventListener("click", function () {
+            const submenu = this.nextElementSibling;
+            submenu.classList.toggle("show"); // Viser/skjuler submenu
+
+            // Roter pilen når den er åben
+            this.classList.toggle("rotated");
+          });
+        });
+      });
+    </script>
+  </nav>
+
+  <style>
+    .burgermenu {
+      display: flex;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 2;
+    }
+    .burgermenu .line {
+      width: 25px;
+      height: 2px;
+      background-color: #172b3a;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    nav ul.show {
+      display: flex;
+    }
+    nav li {
+      margin: 6px 0;
+    }
+    nav ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      margin: 0;
+      width: 250px;
+      background-color: #f9f6ef;
+      z-index: 1;
+      list-style: none;
+      padding: 13% 0 15% 10%;
+    }
+    .burgermenu.open .line:nth-child(1) {
+      transform: rotate(45deg);
+      position: absolute;
+      top: 8px;
+      z-index: 2;
+    }
+    .burgermenu.open .line:nth-child(2) {
+      opacity: 0;
+    }
+    .burgermenu.open .line:nth-child(3) {
+      transform: rotate(-45deg);
+      position: absolute;
+      top: 8px;
+      z-index: 2;
+    }
+    .navlinks a {
+      text-decoration: none;
+      color: #172b3a;
+      font-family: mundial, sans-serif;
+      font-weight: 300;
+      font-style: normal;
+      font-size: 0.9rem;
+    }
+    .logo {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .logo img {
+      height: 40px;
+      width: auto;
+      margin: 10px;
+    }
+  </style>
+</header>
