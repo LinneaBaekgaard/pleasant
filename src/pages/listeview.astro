@@ -1,0 +1,27 @@
+---
+import PCard from "../components/PCard.astro";
+import Layout from "../layouts/Layout.astro";
+
+const curl =
+  "https://naqotdixmvkmxlfitrst.supabase.co/rest/v1/pleasant produkter?select=*";
+
+const apikey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hcW90ZGl4bXZrbXhsZml0cnN0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNjgxNjksImV4cCI6MjA1OTg0NDE2OX0.QEKabtlSzIXwoVA_69Agvl81ayHtTYi0FKWk_tb__t4";
+
+const options = {
+  headers: {
+    apikey: apikey,
+  },
+};
+
+const data = await fetch(curl, options).then((response) => response.json());
+console.log(data);
+---
+
+<Layout>
+  <nav>
+    <a href="index.astro">Home</a> > <a href="listeview.astro">Produkter</a>
+  </nav>
+
+  <PCard />
+</Layout>
