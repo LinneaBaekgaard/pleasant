@@ -1,6 +1,7 @@
 ---
 import PCard from "../components/PCard.astro";
 import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
 
 const curl =
   "https://naqotdixmvkmxlfitrst.supabase.co/rest/v1/pleasant produkter?select=*";
@@ -19,9 +20,37 @@ console.log(data);
 ---
 
 <Layout>
-  <nav>
+  <Header />
+  <nav class="nav">
     <a href="index.astro">Home</a> > <a href="listeview.astro">Produkter</a>
   </nav>
+  <div class="btn">
+    <p class="btn1">Filter</p>
+    <p class="btn2">Sorter</p>
+  </div>
 
-  <PCard />
+  <PCard {data} />
 </Layout>
+
+<style>
+  .nav {
+    margin-left: 20px;
+  }
+
+  .btn {
+    display: flex;
+    margin: 16px auto;
+    gap: 16px;
+    max-width: 400px;
+  }
+
+  .btn1,
+  .btn2 {
+    flex: 1;
+    padding: 10px 25px;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+    text-align: center;
+  }
+</style>
