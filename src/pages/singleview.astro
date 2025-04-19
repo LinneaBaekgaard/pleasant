@@ -1,0 +1,42 @@
+---
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+
+const curl =
+  "https://naqotdixmvkmxlfitrst.supabase.co/rest/v1/pleasant produkter?select=*";
+
+const apikey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hcW90ZGl4bXZrbXhsZml0cnN0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNjgxNjksImV4cCI6MjA1OTg0NDE2OX0.QEKabtlSzIXwoVA_69Agvl81ayHtTYi0FKWk_tb__t4";
+
+const options = {
+  headers: {
+    apikey: apikey,
+  },
+};
+
+const data = await fetch(curl, options).then((response) => response.json());
+console.log(data);
+---
+
+<Layout>
+  <Header />
+  <nav class="nav">
+    <a href="index.astro">Home</a> > <a href="listeview.astro">Produkter</a> > <a
+      href="singleview.astro">Upcycled Brown Stripes Shirt</a
+    >
+  </nav>
+  <h1 class="productdescr">Upcycled <br />Brown Stripes Shirt</h1>
+</Layout>
+
+<style>
+  body {
+    margin-left: 30px;
+  }
+  h1 {
+    font-family: new-spirit, serif;
+    font-weight: 500;
+    font-style: normal;
+    color: #582d93;
+    font-size: 2.5rem;
+  }
+</style>
