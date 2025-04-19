@@ -6,19 +6,39 @@
       <div class="line"></div>
     </div>
 
-    <nav class="navlinks">
-      <ul>
-        <li>
-          <a href="#">Tøj</a>
-          <span class="dropdown-toggle">▼</span>
-          <ul class="submenu">
-            <li><a href="#">Skjorter</a></li>
-            <li><a href="#">Shirts</a></li>
-            <li><a href="#">Skjorter</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
+    <nav class="navlinks"></nav>
+
+    <ul class="dropdown-menu">
+      <li>
+        <a href="#">Kasketter</a>
+        <span class="dropdown-toggle">▼</span>
+        <ul class="submenu">
+          <li><a href="#">Mest populære</a></li>
+          <li><a href="#">Ensfarvede</a></li>
+          <li><a href="#">Abstrakte</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#">Tøj</a>
+        <span class="dropdown-toggle">▼</span>
+        <ul class="submenu">
+          <li><a href="#">Skjorter</a></li>
+          <li><a href="#">Shirts</a></li>
+          <li><a href="#">Skjorter</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#">Livsstil</a>
+        <span class="dropdown-toggle">▼</span>
+        <ul class="submenu">
+          <li><a href="#">Artworks</a></li>
+          <li><a href="#">Surfing</a></li>
+          <li><a href="#">Tøjreperation</a></li>
+        </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="logo">
@@ -60,24 +80,19 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // BURGERMENU
       const burgerMenu = document.querySelector(".burgermenu");
-      const navLinks = document.querySelector(".navlinks ul");
+      const dropdownMenu = document.querySelector(".dropdown-menu");
 
       burgerMenu.addEventListener("click", () => {
-        navLinks.classList.toggle("show");
+        dropdownMenu.classList.toggle("show");
         burgerMenu.classList.toggle("open");
       });
 
-      // DROPDOWN MENUER (Om mig + Coaching)
       const toggles = document.querySelectorAll(".dropdown-toggle");
-
       toggles.forEach((toggle) => {
         toggle.addEventListener("click", function () {
           const submenu = this.nextElementSibling;
-          submenu.classList.toggle("show"); // Viser/skjuler submenu
-
-          // Roter pilen når den er åben
+          submenu.classList.toggle("show");
           this.classList.toggle("rotated");
         });
       });
@@ -115,23 +130,19 @@
     border-radius: 2px;
     transition: all 0.3s ease;
   }
-  nav ul.show {
-    display: flex;
-  }
-  nav li {
-    margin: 6px 0;
-  }
-  .navlinks ul {
+
+  .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%;
+    top: 25px;
     left: 0;
-    width: 250px;
     background-color: #f9f6ef;
-    padding: 20px;
+    padding: 10px 38px 10px 10px;
     margin: 0;
+    width: 250px;
+    max-width: 70vh;
     list-style: none;
-    z-index: 5;
+    z-index: 1;
   }
 
   .burgermenu.open .line:nth-child(1) {
@@ -151,14 +162,38 @@
     position: relative;
     z-index: 1;
   }
-  .navlinks a {
+
+  .dropdown-menu li a {
     text-decoration: none;
     color: #172b3a;
-    font-family: mundial, sans-serif;
+    font-size: 1rem;
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: new-spirit, serif;
     font-weight: 300;
     font-style: normal;
-    font-size: 0.9rem;
   }
+
+  .dropdown-menu.show {
+    display: block;
+  }
+
+  .dropdown-menu li {
+    margin: 10px 0;
+  }
+
+  .submenu.show {
+    display: block;
+  }
+
+  .submenu {
+    display: none;
+    list-style: none;
+    padding-left: 15px;
+  }
+
   .logo {
     position: absolute;
     left: 50%;
@@ -176,5 +211,18 @@
     width: 55px;
     height: 55px;
     gap: 10px;
+  }
+
+  .dropdown-toggle {
+    cursor: pointer;
+  }
+
+  @media (min-width: 1024px) {
+    .burgermenu {
+      display: none;
+    }
+    .dropdown-menu {
+      display: none;
+    }
   }
 </style>
