@@ -1,120 +1,180 @@
 <header>
+  <div class="left">
+    <div class="burgermenu">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+
+    <nav class="navlinks">
+      <ul>
+        <li>
+          <a href="#">Tøj</a>
+          <span class="dropdown-toggle">▼</span>
+          <ul class="submenu">
+            <li><a href="#">Skjorter</a></li>
+            <li><a href="#">Shirts</a></li>
+            <li><a href="#">Skjorter</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
   <div class="logo">
-    <img src="//pleasant.dk/cdn/shop/files/pleasant_logo_22488a6e-43b5-45ec-af04-b902170d456b.png?v=1614306557&width=320" alt="Pleasants logo" />
+    <img
+      src="//pleasant.dk/cdn/shop/files/pleasant_logo_22488a6e-43b5-45ec-af04-b902170d456b.png?v=1614306557&width=320"
+      alt="Pleasants logo"
+    />
   </div>
 
-  <div class="burgermenu">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
+  <div class="size">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+      ></path>
+    </svg>
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+      ></path>
+    </svg>
   </div>
 
-  <nav class="navlinks">
-    <ul>
-      <li>
-        <a href="#">Tøj</a>
-        <span class="dropdown-toggle">▼</span>
-        <ul class="submenu">
-          <li><a href="#">Skjorter</a></li>
-          <li><a href="#">Shirts</a></li>
-          <li><a href="#">Skjorter</a></li>
-        </ul>
-      </li>
-    </ul>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // BURGERMENU
+      const burgerMenu = document.querySelector(".burgermenu");
+      const navLinks = document.querySelector(".navlinks ul");
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // BURGERMENU
-        const burgerMenu = document.querySelector(".burgermenu");
-        const navLinks = document.querySelector(".navlinks ul");
+      burgerMenu.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+        burgerMenu.classList.toggle("open");
+      });
 
-        burgerMenu.addEventListener("click", () => {
-          navLinks.classList.toggle("show");
-          burgerMenu.classList.toggle("open");
-        });
+      // DROPDOWN MENUER (Om mig + Coaching)
+      const toggles = document.querySelectorAll(".dropdown-toggle");
 
-        // DROPDOWN MENUER (Om mig + Coaching)
-        const toggles = document.querySelectorAll(".dropdown-toggle");
+      toggles.forEach((toggle) => {
+        toggle.addEventListener("click", function () {
+          const submenu = this.nextElementSibling;
+          submenu.classList.toggle("show"); // Viser/skjuler submenu
 
-        toggles.forEach((toggle) => {
-          toggle.addEventListener("click", function () {
-            const submenu = this.nextElementSibling;
-            submenu.classList.toggle("show"); // Viser/skjuler submenu
-
-            // Roter pilen når den er åben
-            this.classList.toggle("rotated");
-          });
+          // Roter pilen når den er åben
+          this.classList.toggle("rotated");
         });
       });
-    </script>
-  </nav>
-
-  <style>
-    .burgermenu {
-      display: flex;
-      cursor: pointer;
-      flex-direction: column;
-      gap: 5px;
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      z-index: 2;
-    }
-    .burgermenu .line {
-      width: 25px;
-      height: 2px;
-      background-color: #172b3a;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-    nav ul.show {
-      display: flex;
-    }
-    nav li {
-      margin: 6px 0;
-    }
-    nav ul {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      margin: 0;
-      width: 250px;
-      background-color: #f9f6ef;
-      z-index: 1;
-      list-style: none;
-      padding: 13% 0 15% 10%;
-    }
-    .burgermenu.open .line:nth-child(1) {
-      transform: rotate(45deg);
-      position: absolute;
-      top: 8px;
-      z-index: 2;
-    }
-    .burgermenu.open .line:nth-child(2) {
-      opacity: 0;
-    }
-    .burgermenu.open .line:nth-child(3) {
-      transform: rotate(-45deg);
-      position: absolute;
-      top: 8px;
-      z-index: 2;
-    }
-    .navlinks a {
-      text-decoration: none;
-      color: #172b3a;
-      font-family: mundial, sans-serif;
-      font-weight: 300;
-      font-style: normal;
-      font-size: 0.9rem;
-    }
-    .logo {
-      display: flex;
-      justify-content: flex-end;
-    }
-    .logo img {
-      height: 40px;
-      width: auto;
-      margin: 10px;
-    }
-  </style>
+    });
+  </script>
 </header>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    position: relative;
+  }
+
+  .left {
+    position: relative; /* vigtig for at placere dropdown korrekt */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .burgermenu {
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 2;
+    position: relative;
+  }
+  .burgermenu .line {
+    width: 25px;
+    height: 2px;
+    background-color: #172b3a;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  nav ul.show {
+    display: flex;
+  }
+  nav li {
+    margin: 6px 0;
+  }
+  .navlinks ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 250px;
+    background-color: #f9f6ef;
+    padding: 20px;
+    margin: 0;
+    list-style: none;
+    z-index: 5;
+  }
+
+  .burgermenu.open .line:nth-child(1) {
+    transform: rotate(45deg);
+    position: absolute;
+    z-index: 10;
+  }
+  .burgermenu.open .line:nth-child(2) {
+    opacity: 0;
+  }
+  .burgermenu.open .line:nth-child(3) {
+    transform: rotate(-45deg);
+    position: absolute;
+    z-index: 10;
+  }
+  .navlinks {
+    position: relative;
+    z-index: 1;
+  }
+  .navlinks a {
+    text-decoration: none;
+    color: #172b3a;
+    font-family: mundial, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 0.9rem;
+  }
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .logo img {
+    height: 40px;
+    width: auto;
+    margin: 10px;
+  }
+
+  .size {
+    display: flex;
+    flex-direction: row;
+    width: 55px;
+    height: 55px;
+    gap: 10px;
+  }
+</style>
