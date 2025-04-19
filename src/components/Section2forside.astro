@@ -1,0 +1,187 @@
+<section class="collection">
+  <h2>Se vores nye kollektion<br />... af gamle fund</h2>
+  <nav class="categories">
+    <span>Kasketter</span>
+    <span>Tøj</span>
+    <span>Livsstil</span>
+    <span>Drops</span>
+  </nav>
+  <div class="gallery">
+    <img src="/imgs/look1.webp" alt="Look 1" />
+    <img src="/imgs/look2.webp" alt="Look 2" />
+    <img src="/imgs/look3.webp" alt="Look 3" />
+  </div>
+</section>
+
+<section class="repair-print">
+  <h2>Træt af at smide ud?</h2>
+  <div class="arrow">↓</div>
+
+  <div class="workshop">
+    <div class="image-container">
+      <img src="/imgs/sygning.webp" alt="Repairing fabric" />
+    </div>
+    <h3>Repair café</h3>
+    <p>Kulturen er både én, hvor vi inkluderer dem som "stikker ud", de som har brug for en hånd i perioder, eller de som bare er lidt nede.</p>
+  </div>
+
+  <div class="workshop">
+    <div class="image-container">
+      <img src="//pleasant.dk/cdn/shop/files/Print-event-badge_7bc3ec69-37f2-47ea-952a-6b78a284525d.svg?v=1713363123&width=320" alt="Print workshop" />
+    </div>
+    <h3>Print workshop</h3>
+    <p>Kulturen er både én, hvor vi inkluderer dem som "stikker ud", de som har brug for en hånd i perioder, eller de som bare er lidt nede.</p>
+  </div>
+</section>
+
+<section class="caps">
+  <div class="caps-content">
+    <div class="text-link">
+      <span class="arrow">→</span>
+      <p>Se vores nye<br />udvalg af kasketter</p>
+      <img src="/imgs/blomster.webp" alt="Forårsgrene" class="small-image" />
+    </div>
+    <div class="main-image">
+      <img src="/imgs/sofabillede.webp" alt="Personer med kasketter" />
+    </div>
+  </div>
+</section>
+
+<div class="image-montage">
+  <img src="/imgs/city.jpg" alt="Bybillede med ramme" class="background" />
+  <img src="/imgs/wave.jpg" alt="Havbillede" class="overlay" />
+</div>
+
+<style>
+  .collection {
+    padding: 2rem;
+  }
+  .collection h2 {
+    color: #582d93;
+    font-size: 1.8rem;
+    font-weight: lighter;
+  }
+  .categories {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+  }
+  /* Galleri med 3 billeder */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .gallery img {
+    width: 100%;
+  }
+
+  /* Rapair & print */
+  .repair-print {
+    text-align: center;
+    padding: 20px;
+    font-family: "Georgia", serif;
+  }
+  .repair-print h2 {
+    font-size: 2.5rem;
+    color: #4b2482;
+    margin-bottom: 0.5rem;
+  }
+  .repair-print .arrow {
+    font-size: 2rem;
+    color: #4b2482;
+    margin-bottom: 2rem;
+  }
+  .workshop {
+    max-width: 500px;
+    margin: 0 auto 4rem auto;
+  }
+  .image-container {
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .image-container img {
+    width: 100%;
+    display: block;
+    height: auto;
+  }
+  .workshop h3 {
+    font-size: 1.5rem;
+    color: #3d683d;
+    margin-bottom: 0.5rem;
+  }
+  .workshop p {
+    font-size: 1rem;
+    color: #4a4a4a;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  /* Billeder der overlapper */
+  .caps {
+    padding: 2rem;
+  }
+  .caps-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: start;
+    position: relative;
+    gap: 2rem;
+  }
+  .text-link {
+    position: relative;
+    z-index: 2;
+    font-family: "Georgia", serif;
+    color: #2c2c2c;
+  }
+  .arrow {
+    display: inline-block;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .text-link p {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  .text-link .small-image {
+    margin-top: 1rem;
+    width: 153%;
+    height: 100%;
+    objekt-fit: cover;
+    position: absolute;
+    top: 96%;
+    left: 20px;
+    z-index: 1;
+  }
+  .main-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Bybillede & Sidste del af siden */
+  .image-montage {
+    position: relative;
+    max-width: 800px;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  .image-montage img.background {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 1rem;
+  }
+  .image-montage img.overlay {
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    width: 50%;
+    border: 4px solid #eaeaea;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 0.5rem;
+  }
+</style>
