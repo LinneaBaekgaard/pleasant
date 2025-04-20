@@ -17,21 +17,23 @@
   <h2>Træt af at smide ud?</h2>
   <div class="arrow">↓</div>
 
-  <div class="workshop">
-    <div class="image-container">
-      <img src="/imgs/sygning.webp" alt="Repairing fabric" />
+  <section class="grid_1-1">
+    <div class="workshop repair">
+      <div class="image-container">
+        <img src="/imgs/sygning.webp" alt="Repairing fabric" />
+      </div>
+      <h3>Repair café</h3>
+      <p>Kulturen er både én, hvor vi inkluderer dem som "stikker ud", de som har brug for en hånd i perioder, eller de som bare er lidt nede.</p>
     </div>
-    <h3>Repair café</h3>
-    <p>Kulturen er både én, hvor vi inkluderer dem som "stikker ud", de som har brug for en hånd i perioder, eller de som bare er lidt nede.</p>
-  </div>
 
-  <div class="workshop">
-    <div class="image-container">
-      <img src="//pleasant.dk/cdn/shop/files/Print-event-badge_7bc3ec69-37f2-47ea-952a-6b78a284525d.svg?v=1713363123&width=320" alt="Print workshop" />
+    <div class="workshop print">
+      <div class="image-container">
+        <img src="//pleasant.dk/cdn/shop/files/Print-event-badge_7bc3ec69-37f2-47ea-952a-6b78a284525d.svg?v=1713363123&width=320" alt="Print workshop" />
+      </div>
+      <h3>Print workshop</h3>
+      <p>Kulturen er både én, hvor vi inkluderer dem som "stikker ud", de som har brug for en hånd i perioder, eller de som bare er lidt nede.</p>
     </div>
-    <h3>Print workshop</h3>
-    <p>Kulturen er både én, hvor vi inkluderer dem som "stikker ud", de som har brug for en hånd i perioder, eller de som bare er lidt nede.</p>
-  </div>
+  </section>
 </section>
 
 <section class="caps">
@@ -39,7 +41,9 @@
     <div class="text-link">
       <span class="arrow">→</span>
       <p>Se vores nye<br />udvalg af kasketter</p>
-      <img src="/imgs/blomster.webp" alt="Forårsgrene" class="small-image" />
+    </div>
+    <div class="small-image">
+      <img src="/imgs/blomster.webp" alt="Forårsgrene" />
     </div>
     <div class="main-image">
       <img src="/imgs/sofabillede.webp" alt="Personer med kasketter" />
@@ -127,37 +131,49 @@
 
   /* Billeder der overlapper */
   .caps {
-    padding: 2rem;
+    margin: 0 10px;
   }
   .caps-content {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    align-items: start;
     position: relative;
-    gap: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
   }
   .text-link {
-    position: relative;
-    z-index: 2;
-    color: #2c2c2c;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    color: #2f2f2f;
+    font-family: serif;
   }
-  .arrow {
-    display: inline-block;
-    font-size: 1.5rem;
+  .text-link .arrow {
+    display: block;
+    font-size: 30px;
     margin-bottom: 0.5rem;
   }
   .text-link p {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 16px;
   }
-  .text-link .small-image {
-    margin-top: 1rem;
-    width: 153%;
-    height: 100%;
-    objekt-fit: cover;
+  .small-image {
     position: absolute;
-    top: 96%;
-    left: 20px;
+    bottom: 20px;
+    left: 2px;
+    width: 210px;
+    z-index: 2;
+  }
+  .small-image img {
+    width: 85%;
+    height: 40%;
+    object-fit: cover;
+  }
+  .main-image {
+    margin-left: auto;
+    width: 70%;
+    max-width: 700px;
     z-index: 1;
   }
   .main-image img {
@@ -212,5 +228,50 @@
     font-size: 16px;
     line-height: 1.6;
     color: #4d4d4d;
+  }
+
+  @media (width >= 768px) {
+    .collection h2 {
+      font-size: 45px;
+    }
+    .grid_1-1 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .repair {
+      grid-column: 1/2;
+    }
+    .print {
+      grid-column: 2/3;
+    }
+
+    .text-link .arrow {
+      display: block;
+      font-size: 60px;
+      margin-bottom: 0.5rem;
+    }
+    .text-link p {
+      margin: 0;
+      font-size: 25px;
+    }
+    .text-link {
+      position: absolute;
+      top: 20px;
+      left: 61px;
+      color: #2f2f2f;
+      font-family: serif;
+    }
+    .small-image {
+      position: absolute;
+      bottom: 73px;
+      left: 60px;
+      width: 230px;
+      z-index: 2;
+    }
+    .small-image img {
+      width: 180%;
+      height: 40%;
+      object-fit: cover;
+    }
   }
 </style>

@@ -1,14 +1,13 @@
-<section class="hero">
-  <img class="hero-image" src="/public/imgs/water.webp" alt="Vandbillede" />
-  <button class="pause-button">❚❚</button>
-</section>
+<section class="grid_1-1">
+  <section class="hero">
+    <img class="hero-image" src="/public/imgs/water.webp" alt="Vandbillede" />
+    <button class="pause-button">❚❚</button>
+  </section>
 
-<section class="intro">
-  <h1>Tag en pause<br />fra hurtig mode</h1>
-  <p>
-    En upcycled tøjkollektion, der minder dig om, at sætte farten ned, tage en pause og nyde øjeblikket.<br /><br />
-    Fordi hurtigst ikke altid er bedst.
-  </p>
+  <section class="intro">
+    <h1>Tag en pause fra hurtig mode</h1>
+    <p>En upcycled tøjkollektion, der minder dig om, at sætte farten ned, tage en pause og nyde øjeblikket. <br /> <br /> Fordi hurtigst ikke altid er bedst.</p>
+  </section>
 </section>
 
 <style>
@@ -45,8 +44,21 @@
   }
 
   .intro h1 {
-    font-size: 2rem;
+    font-size: 30px;
     font-weight: lighter;
     color: #582d93;
+  }
+
+  @media (width >= 768px) {
+    .grid_1-1 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .hero {
+      grid-column: 1/2;
+    }
+    .intro {
+      grid-column: 2/3;
+    }
   }
 </style>
