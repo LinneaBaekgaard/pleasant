@@ -79,8 +79,8 @@ const availableSizes = JSON.parse(data.size);
     </div>
 
     <div class="product_info">
-      <p>{data.price} DKK</p>
-      <p>Vælg størrelse</p>
+      <p>{data.price},00 DKK</p>
+      <p>Vælg størrelse:</p>
     </div>
     <section class="sizes">
       {
@@ -94,6 +94,24 @@ const availableSizes = JSON.parse(data.size);
         ))
       }
     </section>
+
+    <div class="buy_btn">
+      <p class="buy">Læg i kurv</p>
+    </div>
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1"
+      stroke="currentColor"
+      class="check"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="m4.5 12.75 6 6 9-13.5"></path>
+    </svg>
   </section>
 </Layout>
 
@@ -138,7 +156,6 @@ const availableSizes = JSON.parse(data.size);
     padding: 10px 10px;
     color: black;
     border: 1px solid black;
-    cursor: pointer;
     text-align: center;
     gap: 8px;
     font-size: 0.65rem;
@@ -187,8 +204,8 @@ const availableSizes = JSON.parse(data.size);
 
   .size-box {
     position: relative;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border: 1px solid black;
     font-family: new-spirit, serif;
     font-weight: 300;
@@ -210,15 +227,63 @@ const availableSizes = JSON.parse(data.size);
   .size-box .cross::after {
     content: "";
     position: absolute;
-    width: 100%;
+    top: 50%;
+    left: 50%;
+    width: 58px;
     height: 1px;
     background: black;
-    top: 50%;
-    left: 0;
-    transform: rotate(45deg);
+    transform-origin: center;
+  }
+
+  .size-box .cross::before {
+    transform: translate(-50%, -50%) rotate(45deg);
   }
 
   .size-box .cross::after {
-    transform: rotate(-45deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  .buy_btn {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 30px;
+  }
+  .buy {
+    background-color: #582d93;
+    color: white;
+    padding: 15px 93px;
+    border-radius: 50px;
+    font-family: new-spirit, serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .check {
+    color: green;
+    margin: 30px 0 0 30px;
+    width: 30px;
+    height: 30px;
+  }
+
+  @media (min-width: 768px) {
+    .product_img {
+      display: flex;
+      justify-content: flex-start;
+      width: 50%;
+      margin: auto auto auto 30px;
+    }
+    .productdescr {
+      display: flex;
+      justify-content: flex-end;
+      max-width: 300px;
+    }
+    .btn {
+      max-width: 400px;
+    }
+    .sizes {
+      gap: 30px;
+    }
   }
 </style>
