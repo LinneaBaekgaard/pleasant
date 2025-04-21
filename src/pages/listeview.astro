@@ -66,6 +66,13 @@ console.log(data);
     </p>
   </div>
 
+  <div class="filter">
+    <p>Størrelse</p>
+    <p>Style</p>
+    <p>Farve</p>
+    <p>Mønster</p>
+  </div>
+
   <section class="cards">
     {data.map((item) => <PCard data={item} />)}
     <PCard {data} />
@@ -172,6 +179,7 @@ console.log(data);
   @media (min-width: 1000px) {
     .cards {
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      margin-left: 280px;
     }
 
     .category-title {
@@ -180,6 +188,10 @@ console.log(data);
 
     .btn1 {
       border: none;
+    }
+
+    .filter {
+      margin-left: 50px;
     }
   }
 </style>
