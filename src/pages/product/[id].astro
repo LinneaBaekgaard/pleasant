@@ -1,32 +1,46 @@
 ---
-import Header from "../components/Header.astro";
-import Layout from "../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Layout from "../../layouts/Layout.astro";
 
-const curl =
-  "https://naqotdixmvkmxlfitrst.supabase.co/rest/v1/pleasant produkter?select=*";
+export async function getStaticPaths() {
+  const curl =
+    "https://naqotdixmvkmxlfitrst.supabase.co/rest/v1/pleasant produkter?select=*";
 
-const apikey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hcW90ZGl4bXZrbXhsZml0cnN0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNjgxNjksImV4cCI6MjA1OTg0NDE2OX0.QEKabtlSzIXwoVA_69Agvl81ayHtTYi0FKWk_tb__t4";
+  const apikey =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hcW90ZGl4bXZrbXhsZml0cnN0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNjgxNjksImV4cCI6MjA1OTg0NDE2OX0.QEKabtlSzIXwoVA_69Agvl81ayHtTYi0FKWk_tb__t4";
 
-const options = {
-  headers: {
-    apikey: apikey,
-  },
-};
+  const options = {
+    headers: {
+      apikey: apikey,
+    },
+  };
 
-const data = await fetch(curl, options).then((response) => response.json());
-console.log(data);
+  const response = await fetch(curl, options);
+  const data = await response.json();
+
+  return data.map((data) => {
+    return {
+      params: { id: data.id },
+      props: { data },
+    };
+  });
+}
+
+const { id } = Astro.params;
+const { data } = Astro.props;
+const allSizes = ["XS", "S", "M", "L", "XL"];
+const availableSizes = JSON.parse(data.size);
 ---
 
 <Layout>
   <Header />
   <nav class="nav">
     <a href="index.astro">Home</a> > <a href="listeview.astro">Produkter</a> > <a
-      href="singleview.astro">Upcycled Brown Stripes Shirt</a
+      href="singleview.astro">{data.name}</a
     >
   </nav>
-  <h1 class="productdescr">Upcycled <br />Brown Stripes Shirt</h1>
-  <img src="/imgs/cali_1.webp" alt="" class="product_img" />
+  <h1 class="productdescr">{data.name}</h1>
+  <img src={"/imgs/" + data.image} alt="" class="product_img" />
 
   <section>
     <div class="btn">
@@ -64,15 +78,29 @@ console.log(data);
       </p>
     </div>
 
-    <p class="price">699,00 DKK</p>
-    <p>Vælg størrelse</p>
+    <div class="product_info">
+      <p>{data.price} DKK</p>
+      <p>Vælg størrelse</p>
+    </div>
+    <section class="sizes">
+      {
+        allSizes.map((size) => (
+          <div
+            class={`size-box ${availableSizes.includes(size) ? "" : "unavailable"}`}
+          >
+            {size}
+            {!availableSizes.includes(size) && <div class="cross" />}
+          </div>
+        ))
+      }
+    </section>
   </section>
 </Layout>
 
 <style>
   h1 {
     font-family: new-spirit, serif;
-    font-weight: 500;
+    font-weight: 300;
     font-style: normal;
     color: #582d93;
     font-size: 2.5rem;
@@ -146,7 +174,51 @@ console.log(data);
     height: 20px;
   }
 
-  .price {
+  .product_info {
     margin-left: 33px;
+  }
+
+  .sizes {
+    display: flex;
+    gap: 20px;
+    justify-content: left;
+    margin: 20px 33px;
+  }
+
+  .size-box {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    font-family: new-spirit, serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .size-box .cross {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .size-box .cross::before,
+  .size-box .cross::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: black;
+    top: 50%;
+    left: 0;
+    transform: rotate(45deg);
+  }
+
+  .size-box .cross::after {
+    transform: rotate(-45deg);
   }
 </style>
