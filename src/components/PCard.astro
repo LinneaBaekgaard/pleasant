@@ -4,7 +4,11 @@ const { data } = Astro.props;
 
 <article>
   <img src={"/imgs/" + data.image} alt={data.imgdescr} />
-  <p>{data.name}<br />{data.price} DKK<br />{data.size}</p>
+  <p>
+    {data.name}<br />{data.price},00 DKK<br /><spanc class="size"
+      >{data.size}</spanc
+    >
+  </p>
 </article>
 
 <style>
@@ -19,5 +23,9 @@ const { data } = Astro.props;
 
   p {
     margin-left: 10px;
+  }
+
+  .size {
+    color: #582d93;
   }
 </style>
