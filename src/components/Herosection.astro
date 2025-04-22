@@ -1,23 +1,28 @@
 <section class="grid_1-1">
   <section class="hero">
-    <video autoplay loop muted>
+    <video class="video" autoplay loop muted>
       <source src="/imgs/landing_page.mp4" type="video/mp4" />
     </video>
   </section>
 
   <section class="intro">
-    <h1>Tag en pause fra hurtig mode</h1>
+    <h1>Tag en pause <br /> fra hurtig mode</h1>
     <p>En upcycled tøjkollektion, der minder dig om, at sætte farten ned, tage en pause og nyde øjeblikket. <br /> <br /> Fordi hurtigst ikke altid er bedst.</p>
   </section>
 </section>
 
 <style>
+  .grid_1-1 {
+    margin-top: 70px;
+    border-radius: 50px;
+  }
   .video {
     object-fit: cover;
+    width: 100%;
+    height: auto;
   }
   .hero {
     position: relative;
-    overflow: hidden;
     border-radius: 50px;
     margin: 2rem;
   }
@@ -41,14 +46,12 @@
   }
 
   .intro {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     padding: 2rem;
     gap: 1rem;
   }
 
   .intro h1 {
-    font-size: 30px;
+    font-size: 45px;
     font-weight: lighter;
     color: #582d93;
   }
@@ -56,13 +59,16 @@
   @media (width >= 768px) {
     .video {
       object-fit: cover;
+      border-radius: 50px;
     }
     .grid_1-1 {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      margin-top: 70px;
     }
     .hero {
       grid-column: 1/2;
+      border-radius: 50px;
     }
     .intro {
       display: block;
