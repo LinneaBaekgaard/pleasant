@@ -1,6 +1,7 @@
 ---
 import Header from "../../components/Header.astro";
 import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/Footer.astro";
 
 export async function getStaticPaths() {
   const curl =
@@ -113,6 +114,8 @@ const availableSizes = JSON.parse(data.size);
         d="m4.5 12.75 6 6 9-13.5"></path>
     </svg>
   </section>
+
+  <Footer />
 </Layout>
 
 <style>
