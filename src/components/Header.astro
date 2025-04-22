@@ -6,7 +6,19 @@
       <div class="line"></div>
     </div>
 
-    <nav class="navlinks"></nav>
+    <nav class="navlinks">
+      <ul>
+        <li>
+          <a href="#">Kasketter</a>
+        </li>
+        <li>
+          <a href="#">Tøj</a>
+        </li>
+        <li>
+          <a href="#">Livsstil</a>
+        </li>
+      </ul>
+    </nav>
 
     <ul class="dropdown-menu">
       <li>
@@ -159,8 +171,7 @@
     z-index: 10;
   }
   .navlinks {
-    position: relative;
-    z-index: 1;
+    display: none;
   }
 
   .dropdown-menu li a {
@@ -223,6 +234,20 @@
     }
     .dropdown-menu {
       display: none;
+    }
+
+    .navlinks {
+      display: block;
+      display: flex;
+      justify-content: center;
+    }
+    .navlinks ul {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
   }
 </style>
