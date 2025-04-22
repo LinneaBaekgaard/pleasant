@@ -2,6 +2,7 @@
 import PCard from "../components/PCard.astro";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 const curl =
   "https://naqotdixmvkmxlfitrst.supabase.co/rest/v1/pleasant produkter?select=*";
@@ -134,6 +135,8 @@ console.log(data);
       {data.map((item) => <PCard data={item} />)}
     </div>
   </section>
+
+  <Footer />
 </Layout>
 
 <style>
