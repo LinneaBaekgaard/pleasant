@@ -1,7 +1,8 @@
 <section class="grid_1-1">
   <section class="hero">
-    <img class="hero-image" src="/public/imgs/water.webp" alt="Vandbillede" />
-    <button class="pause-button">❚❚</button>
+    <video autoplay loop muted>
+      <source src="/imgs/landing_page.mp4" type="video/mp4" />
+    </video>
   </section>
 
   <section class="intro">
@@ -11,10 +12,13 @@
 </section>
 
 <style>
+  .video {
+    object-fit: cover;
+  }
   .hero {
     position: relative;
     overflow: hidden;
-    border-radius: 30px;
+    border-radius: 50px;
     margin: 2rem;
   }
 
@@ -50,6 +54,9 @@
   }
 
   @media (width >= 768px) {
+    .video {
+      object-fit: cover;
+    }
     .grid_1-1 {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -58,7 +65,10 @@
       grid-column: 1/2;
     }
     .intro {
-      grid-column: 2/3;
+      display: block;
+      grid-template-columns: 1fr;
+      gap: 0px;
+      margin: 50px 100px;
     }
   }
 </style>
