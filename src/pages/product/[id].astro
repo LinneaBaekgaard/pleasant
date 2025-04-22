@@ -29,7 +29,7 @@ export async function getStaticPaths() {
 const { id } = Astro.params;
 const { data } = Astro.props;
 const allSizes = ["XS", "S", "M", "L", "XL"];
-const availableSizes = JSON.parse(data.size);
+const availableSizes = [data.size];
 ---
 
 <Layout>
