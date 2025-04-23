@@ -1,15 +1,15 @@
 <section class="collection">
   <h2>Se vores nye kollektion<br />... af gamle fund</h2>
   <nav class="categories">
-    <span>Kasketter</span>
-    <span>Tøj</span>
-    <span>Livsstil</span>
-    <span>Drops</span>
+    <a href="#"><span>Kasketter</span></a>
+    <a href="#"><span>Tøj</span></a>
+    <a href="#"><span>Livsstil</span></a>
+    <a href="#"><span>Drops</span></a>
   </nav>
   <div class="gallery">
-    <img src="/imgs/look1.webp" alt="Look 1" />
-    <img src="/imgs/look2.webp" alt="Look 2" />
-    <img src="/imgs/look3.webp" alt="Look 3" />
+    <a href="#"><img src="/imgs/look1.webp" alt="Look 1" /></a>
+    <a href="#"><img src="/imgs/look2.webp" alt="Look 2" /></a>
+    <a href="#"><img src="/imgs/look3.webp" alt="Look 3" /></a>
   </div>
 </section>
 
@@ -20,7 +20,7 @@
   <section class="grid_1-1">
     <div class="workshop repair">
       <div class="image-container">
-        <img src="/imgs/sygning.webp" alt="Repairing fabric" />
+        <a href="#"><img src="/imgs/sygning.webp" alt="Repairing fabric" /></a>
       </div>
       <h3>Repair café</h3>
       <p>Kulturen er både én, hvor vi inkluderer dem som "stikker ud", de som har brug for en hånd i perioder, eller de som bare er lidt nede.</p>
@@ -28,7 +28,7 @@
 
     <div class="workshop print">
       <div class="image-container">
-        <img src="//pleasant.dk/cdn/shop/files/Print-event-badge_7bc3ec69-37f2-47ea-952a-6b78a284525d.svg?v=1713363123&width=320" alt="Print workshop" />
+        <a href="#"><img class="print" src="//pleasant.dk/cdn/shop/files/Print-event-badge_7bc3ec69-37f2-47ea-952a-6b78a284525d.svg?v=1713363123&width=320" alt="Print workshop" /></a>
       </div>
       <h3>Print workshop</h3>
       <p>Kulturen er både én, hvor vi inkluderer dem som "stikker ud", de som har brug for en hånd i perioder, eller de som bare er lidt nede.</p>
@@ -46,21 +46,10 @@
       <img src="/imgs/blomster.webp" alt="Forårsgrene" />
     </div>
     <div class="main-image">
-      <img src="/imgs/sofabillede.webp" alt="Personer med kasketter" />
+      <a href="#"><img src="/imgs/sofabillede.webp" alt="Personer med kasketter" /></a>
     </div>
   </div>
 </section>
-
-<!-- <section class="artworks">
-  <div class="artworks-image-wrapper">
-    <img class="city-image" src="/imgs/bybillede.webp" alt="Bybillede" />
-  </div>
-  <div class="artworks-text">
-    <span class="arrow-up">↑</span>
-    <h2>Se vores kollektion af<br />unikke prints og artworks</h2>
-    <p>Alle prints og artworks fra Blandet Pleasant er bæredygtigt produceret – trykt på miljøvenlige materialer og med omtanke for både natur og mennesker. Fordi kunst godt kan være smuk og ansvarlig.</p>
-  </div>
-</section> -->
 
 <style>
   .collection {
@@ -76,6 +65,13 @@
     gap: 1rem;
     margin: 1rem 0;
     font-size: 0.9rem;
+  }
+  .categories a {
+    text-decoration: none;
+    color: #000;
+  }
+  .categories a:hover {
+    text-decoration: underline;
   }
   /* Galleri med 3 billeder */
   .gallery {
@@ -188,21 +184,6 @@
     overflow: hidden;
     margin: 0 auto;
   }
-  /* .image-montage img.background {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 1rem;
-  }
-  .image-montage img.overlay {
-    position: absolute;
-    top: 20%;
-    left: 25%;
-    width: 50%;
-    border: 4px solid #eaeaea;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    border-radius: 0.5rem;
-  } */
 
   /* Bunden ad siden - inden footer */
   .artworks {
@@ -241,6 +222,10 @@
     }
     .print {
       grid-column: 2/3;
+    }
+    .print img {
+      width: 320px;
+      margin: 0 auto;
     }
 
     .text-link .arrow {
