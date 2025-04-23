@@ -3,12 +3,14 @@ const { data } = Astro.props;
 ---
 
 <article>
-  <img src={"/imgs/" + data.image} alt={data.imgdescr} />
-  <p>
-    {data.name}<br />{data.price},00 DKK<br /><spanc class="size"
-      >{data.size}</spanc
-    >
-  </p>
+  <a href={`../product/${data.id}`}>
+    <img src={"/imgs/" + data.image} alt={data.imgdescr} />
+    <p>
+      {data.name}<br />{data.price},00 DKK<br /><spanc class="size"
+        >{data.size}</spanc
+      >
+    </p>
+  </a>
 </article>
 
 <style>
@@ -27,5 +29,10 @@ const { data } = Astro.props;
 
   .size {
     color: #582d93;
+  }
+
+  a {
+    text-decoration: none;
+    color: #000;
   }
 </style>
