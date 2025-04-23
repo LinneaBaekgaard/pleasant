@@ -23,12 +23,11 @@ console.log(data);
 <Layout>
   <Header />
   <nav class="nav">
-    <a href="index.astro">Forside</a> > <a
-      class="breadcrumb"
-      href="listeview.astro">Produkter</a
+    <a href="/">Forside</a> > <a class="breadcrumb" href="/listeview"
+      >Produkter</a
     >
 
-    <h1 class="category-title">En kategori</h1>
+    <h1 class="category-title">Produkter</h1>
   </nav>
   <div class="btn">
     <p class="btn1">
@@ -114,7 +113,7 @@ console.log(data);
             d="M19 9l-7 7-7-7"></path>
         </svg>
       </p>
-      <p>
+      <p class="moenster-filter">
         Mønster <svg
           xmlns="http://www.w3.org/2000/svg"
           class="pil"
@@ -160,6 +159,7 @@ console.log(data);
   .category-title {
     font-size: 2.5rem;
     color: #582d93;
+    font-weight: 300;
   }
 
   .btn {
@@ -244,7 +244,6 @@ console.log(data);
     .category-title {
       font-size: 3.5rem;
       margin-left: 260px;
-      font-weight: 300;
     }
 
     .btn1 {
@@ -264,6 +263,11 @@ console.log(data);
     .filter-tekst {
       border-bottom: solid 1px #000;
       padding-bottom: 8px;
+      cursor: pointer;
+    }
+
+    .moenster-filter {
+      cursor: pointer;
     }
 
     .pil {
